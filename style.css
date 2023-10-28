@@ -1,0 +1,110 @@
+:root {
+    --core-pink: #C340A1;
+    --core-periwinkle: #6A6DCD;
+    --core-red: #D93535;
+    --core-blue: #307FE2;
+    --core-mint: #00A88B;
+}
+
+body {
+    display: flex;
+    background-color: black;
+    color: white;
+    justify-content: center;
+    
+}
+
+.container {
+    display: flex;
+    
+    background-color: #343D4B;
+    width: 1440px;
+    height:1024px;
+    align-items: center;
+    justify-content: center;
+}
+
+.board1 {
+    display: flex;
+    background-image: url();
+    border-radius: 30px;
+    background-image:linear-gradient(152deg, rgba(170, 234, 236, 0.9) -0.04%, rgba(83, 91, 230, 0.90) 100%), url(https://s3-alpha-sig.figma.com/img/5278/7382/e06426df1254df03a60b913eaf1f97dd?Expires=1699228800&Signature=YLQTiDi9u5~NkwyBuMXOSI2KQV4WTZe0YTf9pkZgxdsEIvukxLymm9MvHsBMVVLbChMA6nUlfUnmefVPDjsyvfM4UWf3MKfPbUYHW~Dvm8EnN-juQpyDAT3IU7o46TOlq9-tl~Ig06iQHedMUKizcuSDssAV1h6k9GJINGSF9PNUD0VNu~4946trvlrraPRQ3oGwaY2MjQ4h5o4BLYkqoxPNWkARqU4CPokuCTwNy5JwJqAp77pWuLRamYrdIH7AUQ6-WfVv5TFFilv0h9bSjhklqZg7uS6HJ0OZIXfU9RkFTjjHB7ShA02sC3JE03MOAvjrWeKzCZX0QUIBYwzMXQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+    width: 493px;
+    height: 666px;
+    top: 188px;
+    left: 200px;
+    flex-shrink: 0;
+    
+    
+    
+}
+
+.board2 {
+    display: flex;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius:25px;
+    background-color: #222831;
+    width: 520px;
+    height: 623px;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.week {
+    
+    width: 176px;
+    height: 38px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 37px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    justify-content: left;
+    padding-left: 32px;
+    padding-top: 48px;
+}
+.time {
+    display: flex;
+    width: 154px;
+    height: 36px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    flex-flow: row nowrap;
+    justify-content: left;
+    padding-left: 32px;
+    padding-top: 102px;
+
+}
+.card {
+    border-radius: 8px;
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.08), 0px 4px 8px 0px rgba(0, 0, 0, 0.12);
+    padding: 24px;
+}
+.card:hover {
+    background-color: green;
+}
+
+.pink {
+    background-color: var(--core-pink);
+}
+.periwinkle {
+    background-color: var(--core-periwinkle);
+}
+.red {
+    background-color: var(--core-red);
+}
+.blue {
+    background-color: var(--core-blue);
+}
+.mint {
+    background-color: var(--core-mint);
+}
