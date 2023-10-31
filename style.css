@@ -1,22 +1,16 @@
-:root {
-    --core-pink: #C340A1;
-    --core-periwinkle: #6A6DCD;
-    --core-red: #D93535;
-    --core-blue: #307FE2;
-    --core-mint: #00A88B;
+* {
+    box-sizing: border-box;
 }
 
 body {
     display: flex;
     background-color: black;
-    color: white;
     justify-content: center;
-    
+    color: white;
 }
 
 .container {
     display: flex;
-    
     background-color: #343D4B;
     width: 1440px;
     height:1024px;
@@ -28,15 +22,12 @@ body {
     display: flex;
     background-image: url();
     border-radius: 30px;
-    background-image:linear-gradient(152deg, rgba(170, 234, 236, 0.9) -0.04%, rgba(83, 91, 230, 0.90) 100%), url("./more.png");
+    background-image:linear-gradient(152deg, rgba(170, 234, 236, 0.9) -0.04%, rgba(83, 91, 230, 0.90) 100%), url("./image/more.png");
     width: 493px;
     height: 666px;
     top: 188px;
     left: 200px;
-    flex-shrink: 0;
-    
-    
-    
+    flex-shrink: 0;  
 }
 
 .board2 {
@@ -46,10 +37,9 @@ body {
     background-color: #222831;
     width: 520px;
     height: 623px;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    
+    flex-shrink: 0; 
+    align-content: flex-start;
+    flex-direction: column;
 }
 
 .week {
@@ -67,9 +57,8 @@ body {
     padding-left: 32px;
     padding-top: 48px;
 }
-.time {
+.time1 {
     display: flex;
-    width: 154px;
     height: 36px;
     flex-shrink: 0;
     color: #FFF;
@@ -80,31 +69,153 @@ body {
     line-height: normal;
     flex-flow: row nowrap;
     justify-content: left;
-    padding-left: 32px;
-    padding-top: 102px;
+    padding-top: 16px;
 
 }
-.card {
-    border-radius: 8px;
-    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.08), 0px 4px 8px 0px rgba(0, 0, 0, 0.12);
-    padding: 24px;
-}
-.card:hover {
-    background-color: green;
+.location {
+    display: flex;
+    height: 36px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    flex-flow: row nowrap;
+    justify-content: left;
+    padding-top: 13px;
+    
+
 }
 
-.pink {
-    background-color: var(--core-pink);
+.location1 {
+    display: flex;
+    height: 36px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    flex-flow: row nowrap;
+    justify-content: left;
+    padding-left: 8px;
 }
-.periwinkle {
-    background-color: var(--core-periwinkle);
+.sunmark {
+    display: flex;
+    flex-shrink: 0;
+    flex-flow: row nowrap;
+    justify-content: left;
+    padding-top: 200px;
+    width: 95px;
+    height: 95px;
+    flex-shrink: 0;
 }
-.red {
-    background-color: var(--core-red);
+.temperature {
+    display: flex;
+    flex-shrink: 0;
+    flex-flow: row nowrap;
+    justify-content: left;
+    padding-top: 9px;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    
 }
-.blue {
-    background-color: var(--core-blue);
+.weather {
+    display: flex;
+    flex-shrink: 0;
+    flex-flow: row nowrap;
+    justify-content: left;
+    padding-top: 9px;
+    width: 144px;
+    height: 29px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    
 }
-.mint {
-    background-color: var(--core-mint);
+.boardtext2 {
+    width: 275px;
+    height: 35px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    justify-content: left;
+    display:flex;
+    padding-left: 55px;
+    padding-top: 55px;
+    flex-flow: row nowrap;
+
+}
+.precipitaionpercent {
+    width: 68px;
+    height: 22px;
+    flex-shrink: 0; 
+    color: #FFF;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-left:72px;
+    
+    
+
+        
+}
+.precipitation {
+    width: 275px;
+    height: 35px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.board2strokes {
+    width: 275px;
+    height: 35px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Arial;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 16px;
+    
+}
+.boardtext {
+    width: 275px;
+    height: 35px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    justify-content: left;
+    display:flex;
+    flex-flow: row nowrap;
+    padding-left: 55px;
+
 }
