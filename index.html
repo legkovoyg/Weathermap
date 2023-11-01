@@ -5,76 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приложение погоды</title>
     <link rel ="stylesheet" href = "style.css">
+    <style>
+        @font-face {
+            font-family:Montserrat;
+            src: url(font/Montserrat-Medium.ttf);
+        }
+    </style>
 </head>
 <body>
     <div class = "container">
 
         <div class = "board1">
-
-            <div class = "week">
-                Saturday
-
-                <div class="time1">
-                    31 Oct 2023
-                </div>
-                
-
-                <div class ="location">
-                    <img src= "image/locationmark.png" width = "27px" height="27px" style="margin-top: -5px;">
-                    
-                    <div class = "location1">
-                        Ufa, Russia
-
+            <div class = "razdelitel"> 
+                <div class="topleft">
+                    <div class = "week">
+                        Saturday
                     </div>
-                    
+                    <div class="date">
+                        1 Nov 2023
+                    </div>
+                    <div class = "location">
+                        <div class ="locationmark">
+                            <img src = "image/locationmark.png">
+                        </div>
+
+                        <div class = "locationplace">
+                            Biarriz, FR
+                        </div>
+                    </div>
                 </div>
 
-                <div class =sunmark>
-                    <img src="image/sunmark.svg">
+
+
+                <div class ="botleft">
+                    <div class = "sunmark">
+                        <img src = "image/sunmark.svg">
+                    </div>
+                    <div class="temperature">
+                        29 °C
+                    </div>
+                    <div class = "weather">
+                        Snowy
+                    </div>
                 </div>
 
-                <div class="temperature">
-                    0°C
-                </div>
-                
-                <div class="weather">
-                    Snowy
-                </div>
+
+
             </div>
-
+           
             
 
         </div>
 
         <div class = "board2"> 
 
-            <div class="boardtext2">
+            <div class="razdelitel2">
                 
-                <div class="precipitation">
-                    PRECIPITATION
+                <div class="block1">
+                    
+                    <div class = "b1str1">
+                        <div class = "b1text1">
+                            PRECIPITATION
+                        </div>
+                        <div class = "b2percent1">
+                            0 %
+                        </div>
+                    </div>
+                    <div class ="b1str1">
+                        <div class = "b1text1">
+                            HUMIDITY
+                        </div>
+                        <div class = "b2percent1">
+                            42%
+                        </div>
+                    </div>
+                    <div class = "b1str1">
+                        <div class = "b1text1">
+                            WIND
+                        </div>
+                        <div class = "b2percent1">
+                            3 km/h
+                        </div>
+                    </div>
                 </div>
 
-                <div class="precipitaionpercent">
-                    0%
+                <div class="block2">
+                    <div class="fweatherblock">
+                        <div class = "fwbblock1">
+                            <img src="image/sunmark.svg" width="55px" height="55px" style ="filter:invert(1)">
+                        </div>
+                        <div class ="fwbblock2">
+                            Tue
+                        </div>
+                        <div class = "fwbblock3">
+                            30°C
+                        </div>
+                    </div>
+                    <div class="weatherblock">
+                        <div class = "wbblock1">
+                            <img src="image/sunmark.svg" width="55px" height="55px">
+                        </div>
+                        <div class ="wbblock2">
+                            Wed
+                        </div>
+                        <div class = "wbblock3">
+                            30°C
+                        </div>
+                    </div>
+                    <div class="weatherblock">
+                        <div class = "wbblock1">
+                            <img src="image/sunmark.svg" width="55px" height="55px">
+                        </div>
+                        <div class ="wbblock2">
+                            Tue
+                        </div>
+                        <div class = "wbblock3">
+                            30°C
+                        </div>
+                    </div>
+                    <div class="weatherblock">
+                        <div class = "wbblock1">
+                            <img src="image/sunmark.svg" width="55px" height="55px">
+                        </div>
+                        <div class ="wbblock2">
+                            Tue
+                        </div>
+                        <div class = "wbblock3">
+                            30°C
+                        </div>
+                    </div>
                 </div>
 
+                <div class = "block3">
+                    <img src="image/locationmark.png" width="33px" height="33px">
+                    Change location
+                </div>
                 
             </div>
-            
-            <div class="boardtext">
-                
-                <div class="board2strokes">
-                    HUMIDITY
-                </div>
-
-                <div class="precipitaionpercent">
-                    42%
-                </div>
-
-                
-            </div>
-            
-            
 
         </div>
 
