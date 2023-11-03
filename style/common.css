@@ -1,0 +1,46 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+
+
+:root {
+    --space-base: 4px;
+    --space-8: calc(2 * var(--space-base));
+    --space-12: calc(3 * var(--space-base));
+    --space-16: calc(4 * var(--space-base));
+    --whitec: #FFF;
+    --blackc: #000
+    
+}
+
+body {
+    display: flex;
+    background-color: #343D4B;
+    justify-content: center;
+    color: var(--whitec);
+    width: 100vw;
+    height:100vh;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding:0px;
+    font-size: 0.69444444vw;
+}
+
+.container {
+    display: flex;
+    background-color: #343D4B;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat;
+}
+@media screen and (max-width:1000px) {
+    .container{
+        flex-direction: column;
+        width:100vw;
+        height:100vh
+    }
+    
+    
+}
