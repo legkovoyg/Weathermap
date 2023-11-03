@@ -15,7 +15,7 @@
 }
 
 body {
-    display: flex;
+    
     background-color: #343D4B;
     justify-content: center;
     color: var(--whitec);
@@ -39,7 +39,7 @@ body {
     .container{
         flex-direction: column;
         width:100vw;
-        height:100vh
+        min-height:100vh
     }
     
     
