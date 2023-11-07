@@ -17,12 +17,9 @@
 body {
     
     background-color: #343D4B;
-    justify-content: center;
     color: var(--whitec);
     width: 100vw;
     height:100vh;
-    align-items: center;
-    justify-content: center;
     margin: 0px;
     padding:0px;
     font-size: 0.69444444vw;
