@@ -20,6 +20,11 @@ else {
     }
 }
 
+// function getMaxLengthString(arrayOfStrings) {
+//     // work
+//     return '';
+// }
+
 // Вернуть самую длинную строку
 let a1 = 'Я хочу пиццу';
 let a2 = 'Как же я безумно хочу пиццу'
@@ -47,6 +52,14 @@ if (word[0] == word[4], word[1]==word[3]){
 else {
     console.log ('Слово',word,"не является полиномом")
 }
+
+// function isWordPalindrom(word) {
+//     if (/* magic */) {
+//         return true;
+//     }
+
+//     return false;
+// }
 
 
 // Сумма элементов массива
@@ -80,5 +93,7 @@ for (let key in obj1) {
     clone[key] = obj1[key];
 }
 obj1.name = 'Sam';
+
+const clone2 = structuredClone(obj1);
 
 console.log(clone.name, clone.age,clone.children);
