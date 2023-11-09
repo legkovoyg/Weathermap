@@ -75,9 +75,10 @@ console.log (filterchislomassiv)
 
 
 const obj1 = { name: "Bob", age: 50, children: [ { name: "Marie", age: 16}, { name: "Jame", age: 12} ] };
-
-const obj2 = obj1;
-
+let clone = {};
+for (let key in obj1) {
+    clone[key] = obj1[key];
+}
 obj1.name = 'Sam';
 
-console.log(obj2.name);
+console.log(clone.name, clone.age,clone.children);
