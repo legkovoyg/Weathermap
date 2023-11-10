@@ -32,3 +32,11 @@
 .btn--full-width {
     width: 100%;
 }
+
+@media screen and (max-width:1000px) {
+.btn{
+    font-size: calc(2*(var(--space-12)));
+}
+
+
+}

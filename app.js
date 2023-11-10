@@ -191,11 +191,17 @@ window.addEventListener('load', function() {
     if (modalElement) {
       document.querySelectorAll('.js-open-modal').forEach(button => {
         button.addEventListener('click', () => {
-          modalElement.classList.remove('opened');
+          modalElement.classList.remove('closed');
         })
       });
     }
-    
+    if (modalElement){
+      document.querySelectorAll('.js-close-modal').forEach(button => {
+        button.addEventListener('click',()=>{
+          modalElement.classList.add('closed');
+        })
+      })
+    }
 });
 
 

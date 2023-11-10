@@ -14,18 +14,18 @@
 </head>
 <body>
     <div class = "container">
-        <div class="modal opened" id="first">
+        <div class="modal closed" id="first">
             <div class="modal-window">
-                <h1>Select location</h1>
+                <div>Select location</div>
                 <select class="select" id="city-select">
                   
                 </select>
                 <div class="twobuttons">
                 <button class="btn js-close-modal">Cancel</button>
-                <button class="btn"> OK</button>
+                <button class="btn js-close-modal"> OK</button>
                 </div>
             </div>
-            <div class="modal-overlay">
+            <div class="modal-overlay js-close-modal">
     
             </div>
         </div>
@@ -40,7 +40,7 @@
                         1 Nov 2023
                     </div>
                     <div class = "left-block__location">
-                        <div class ="left-block__location-mark">
+                        <div class ="left-block__location-mark" >
                             <img src = "image/locationmark.png">
                         </div>
 
@@ -114,7 +114,7 @@
                         </div>
                         <div class = "weatherblock_1st-unit__temperature">
                             30°C
-                        </div>querySelectorAll
+                        </div>
                     </div>
                     <div class="right-block__weatherblock__unit">
                         <div class = "weatherblock__unit__mark">
