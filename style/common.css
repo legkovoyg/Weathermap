@@ -31,7 +31,11 @@ body {
     align-items: center;
     justify-content: center;
     font-family: Montserrat;
+    height:100%;
 }
+
+
+
 @media screen and (max-width:1000px) {
     .container{
         flex-direction: column;
@@ -41,3 +45,4 @@ body {
     
     
 }
+

@@ -14,12 +14,29 @@
 </head>
 <body>
     <div class = "container">
-
+        <div class="modal opened" id="first">
+            <div class="modal-window">
+                <h1>Select location</h1>
+                <select class="select">
+                    <option>-Select spots</option>
+                    <option>Biarritz,FR</option>
+                    <option>Moscow,Russia</option>
+                    <option>London,UK</option>
+                </select>
+                <div class="twobuttons">
+                <button class="btn-close">Cancel</button>
+                <button class="btn-ok"> OK</button>
+                </div>
+            </div>
+            <div class="modal-overlay">
+    
+            </div>
+        </div>
         <div class = "left-block">
             <div class = "left-block__divider"> 
                 <div>
                     <div class = "left-block__week">
-                        Saturday
+                        111
                     </div>
                     <div class="left-block__date">
                         1 Nov 2023
@@ -31,7 +48,6 @@
 
                         <div class = "left-block__location-place">
                             <span id="city"></span>, <span id="country"></span>
-                            <!-- Biarriz, FR -->
                         </div>
                     </div>
                 </div>
@@ -69,7 +85,7 @@
                             PRECIPITATION
                         </div>
                         <div class = "right-block__textblock__percent">
-                            0 %
+                            <span id="first-percent"></span>
                         </div>
                     </div>
                     <div class ="right-block__textblock-str">
@@ -77,7 +93,7 @@
                             HUMIDITY
                         </div>
                         <div class = "right-block__textblock__percent">
-                            42%
+                            <span id='second-percent'></span>
                         </div>
                     </div>
                     <div class = "right-block__textblock-str">
@@ -85,7 +101,7 @@
                             WIND
                         </div>
                         <div class = "right-block__textblock__percent">
-                            3 km/h
+                            <span id="WindPercent"></span>
                         </div>
                     </div>
                 </div>
@@ -136,19 +152,34 @@
                         </div>
                     </div>
                 </div>
-
+                <button class="btn" id="changelocbutt">
                 <div class = "right-block__button">
                     <img src="image/locationmark.png" width="33px" height="33px">
                     Change location
                 </div>
+            </button>
                 
             </div>
 
         </div>
-
+        
     </div>
     
 
+
     <script src="./app.js"></script>
+    <script>var button = document.getElementById('btn-close'),
+        first = document.getElementById('first'),
+        second = document.getElementById('btn');
+        
+        button.addEventListener('click', function() {
+      
+          // Закрываем первый поапа
+          first.classList.remove('opened');
+          
+          // Открываем второй
+          second.classList.add('opened');
+        });
+      </script>
 </body>
 </html>
