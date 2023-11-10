@@ -195,47 +195,7 @@
     padding:30px;
     color: #000;
 }
-.btn{
-    border:none;
-    background:none;
-    right: 20px;
-    top: 20px;
-    opacity: 1;
-}
-.btn-close{
-    border: none;
-    opacity:0.7;
-    width:184px;
-    height:53px;
-    border-radius: 20px;
-    background: linear-gradient(91deg, rgba(144, 217, 224, 0.90) 0.2%, rgba(84, 96, 230, 0.90) 100%);
-    color: var(--whitec);
-    font-family: Montserrat;
-    font-size: 2em;
-    font-weight: 600;
-    opacity: 1;
 
-}
-.btn-ok{
-    
-    border: none;
-    opacity:0.7;
-    width:184px;
-    height:53px;
-    border-radius: 20px;
-    background: linear-gradient(91deg, rgba(144, 217, 224, 0.90) 0.2%, rgba(84, 96, 230, 0.90) 100%);
-    color: var(--whitec);
-    font-family: Montserrat;
-    font-size: 2em;
-    font-weight: 600;
-    opacity: 1;
-}
-.btn-close:hover{
-    opacity:0.7;
-}
-.btn-ok:hover{
-    opacity:0.7;
-}
 .twobuttons{
     display:flex;
     justify-content: space-between;
