@@ -191,5 +191,7 @@ var closebutton = document.getElementById('btn-close'),
 
 var openbutton = document.getElementById('btn'),
   second = document.getElementById('first')
+  openbutton.addEventListener('click',function(){
   second.classList.add('opened')
+});
 
