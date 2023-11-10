@@ -17,21 +17,19 @@
         <div class="modal opened" id="first">
             <div class="modal-window">
                 <h1>Select location</h1>
-                <select class="select">
-                    <option>-Select spots</option>
-                    <option>Biarritz,FR</option>
-                    <option>Moscow,Russia</option>
-                    <option>London,UK</option>
+                <select class="select" id="city-select">
+                  
                 </select>
                 <div class="twobuttons">
-                <button class="btn-close">Cancel</button>
-                <button class="btn-ok"> OK</button>
+                <button class="btn js-close-modal">Cancel</button>
+                <button class="btn"> OK</button>
                 </div>
             </div>
             <div class="modal-overlay">
     
             </div>
         </div>
+
         <div class = "left-block">
             <div class = "left-block__divider"> 
                 <div>
@@ -116,7 +114,7 @@
                         </div>
                         <div class = "weatherblock_1st-unit__temperature">
                             30°C
-                        </div>
+                        </div>querySelectorAll
                     </div>
                     <div class="right-block__weatherblock__unit">
                         <div class = "weatherblock__unit__mark">
@@ -152,11 +150,9 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn" id="changelocbutt">
-                <div class = "right-block__button">
+                <button class="btn js-open-modal" id="changelocbutt">
                     <img src="image/locationmark.png" width="33px" height="33px">
                     Change location
-                </div>
             </button>
                 
             </div>
@@ -168,7 +164,7 @@
 
 
     <script src="./app.js"></script>
-    <script>var button = document.getElementById('btn-close'),
+    <!-- <script>var button = document.getElementById('btn-close'),
         first = document.getElementById('first'),
         second = document.getElementById('btn');
         
@@ -180,6 +176,6 @@
           // Открываем второй
           second.classList.add('opened');
         });
-      </script>
+      </script> -->
 </body>
 </html>
