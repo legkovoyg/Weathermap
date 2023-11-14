@@ -299,3 +299,20 @@
     
     
 }
+
+@media screen and (min-width: 2000px){
+    .right-block{
+        flex-basis:1040px;
+        aspect-ratio: 1040/1246;
+
+    }
+    .right-block__textblock__text{
+        height: auto;
+    }
+    .right-block__textblock__percent{
+        height:auto;
+        width:auto;
+    }
+
+}
+    

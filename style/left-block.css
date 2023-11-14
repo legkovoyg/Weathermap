@@ -87,8 +87,7 @@
     height: 61px;
 }
 .left-block__weather {
-    width: 144px;
-    height: 29px;
+   
     flex-shrink: 0;
     font-family: Montserrat;
     font-size: 3em;
@@ -161,12 +160,14 @@
     
     
 }
-/* @media screen and (min-width: 2000px){
+@media screen and (min-width: 2000px){
     .left-block{
-        height:45%;
-        width:30%;
+        flex-basis:986px;
+        aspect-ratio: 986/1332;
         }
-    
+    .left-block__temperature{
+        height:auto;
+    }
 
-}; */
+};
     
