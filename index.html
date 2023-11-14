@@ -13,6 +13,13 @@
     </style>
 </head>
 <body>
+
+
+    <div></div>
+    <div></div>
+    <div></div>
+
+
     <div class = "container">
         <div class="modal closed" id="first">
             <div class="modal-window">
@@ -34,10 +41,10 @@
             <div class = "left-block__divider"> 
                 <div>
                     <div class = "left-block__week">
-                        111
+                        <span id="week"></span>
                     </div>
                     <div class="left-block__date">
-                        1 Nov 2023
+                        <span id="dateEl"></span>
                     </div>
                     <div class = "left-block__location">
                         <div class ="left-block__location-mark" >
@@ -56,11 +63,11 @@
                     <div class = "left-block__weather-mark">
                         <img src = "image/sunmark.svg">
                     </div>
-                    <div class="left-block__temperature">
-                        29 °C
+                    <div class="left-block__temperature">   
+                        <span id="Temperature"></span>
                     </div>
                     <div class = "left-block__weather">
-                        Snowy
+                        <span id="WeatherEl"></span>
                     </div>
                 </div>
 
@@ -110,10 +117,10 @@
                             <img src="image/sunmark.svg" width="55px" height="55px" style ="filter:invert(1)">
                         </div>
                         <div class ="weatherblock_1st-unit__week">
-                            Tue
+                            <span></span>
                         </div>
                         <div class = "weatherblock_1st-unit__temperature">
-                            30°C
+                            <span id="Temperature"></span>
                         </div>
                     </div>
                     <div class="right-block__weatherblock__unit">
@@ -159,6 +166,14 @@
 
         </div>
         
+    </div>
+
+
+  
+  
+    <div>
+        <div>date</div>
+        <div>temp</div>
     </div>
     
 

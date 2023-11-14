@@ -137,6 +137,9 @@ window.addEventListener('load', function() {
     const [currentLocation] = locations;
     const { name, country, days } = currentLocation;
     const [ firstDay ] = days;
+    
+    console.log(days.length);
+
   // console.log(days);
     const cityElement = document.getElementById('city');
     const countryElement = document.getElementById('country');
@@ -144,6 +147,28 @@ window.addEventListener('load', function() {
     const precipitationElement = document.getElementById('first-percent');
     const humidityElement = document.getElementById('second-percent');
     const windElement = document.getElementById('WindPercent');
+    const tempElement = document.getElementById('Temperature')
+    const weatherElement = document.getElementById('WeatherEl')
+    const dateElement = document.getElementById('dateEl')
+    const weatherDateElement=document.getElementById('weatherDateElement')
+    const daysContainer = this.document.querySelector('.right-block__weatherblock');
+    console.log(days.length);
+
+      // days.forEach((day, index) => {
+      //   const { temperature, date } = day;
+      //   const weekdayClassname = index !== 0 ? 'weatherblock__unit__week' : 'right-block__weatherblock__1st-unit';
+
+      //   const weekDayEl = createDivElement(weekdayClassname, date);
+      //   const tempDayEl = createDivElement('weatherblock__unit__temperature', temperature);
+      //   const dayEl = createDivElement('right-block__weatherblock__unit');
+
+
+      //   dayEl.append(weekDayEl);
+      //   dayEl.append(tempDayEl);
+
+      //   daysContainer.append(dayEl);
+      // });
+
 
 
     const citySelectElement = this.document.getElementById('city-select');
@@ -175,6 +200,10 @@ window.addEventListener('load', function() {
     //   weekElement.innerText = Object.values(days[2]);
     //   console.log(weekElement);
     // };
+    if (weekElement){
+      weekElement.innerText = weekChanger(firstDay.date.slice(0,3))
+      console.log(firstDay.date.slice(0,3))
+    }
     if (precipitationElement) {
       precipitationElement.innerText =  `${firstDay.precipitation} %`;
     }
@@ -183,6 +212,15 @@ window.addEventListener('load', function() {
     }
     if (windElement) {
       windElement.innerText = firstDay.wind + ' km/h';
+    }
+    if (tempElement){
+      tempElement.innerText = firstDay.temperature + '°C'
+    }
+    if (weatherElement){
+      weatherElement.innerText=zaglav(firstDay.weather)
+    }
+    if (dateElement){
+      dateElement.innerText = firstDay.date.slice(4,15)
     }
 
 
@@ -204,6 +242,36 @@ window.addEventListener('load', function() {
     }
 });
 
+function zaglav(str) {
+  const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
+  console.log(capitalize(str));
+  return(capitalize(str)) 
+}
+
+function weekChanger(str) {
+  if (str=='Mon'){
+    str=Monday
+  }
+  else if  (str=="Thu"){
+    str="Thursday"
+  }
+  else if (str=='Wed'){
+    str='Wednesday'
+  }
+  else if (str=='Thu'){
+    str='Thursday'
+  }
+  else if (str=='Fry'){
+    str='Friday'
+  }
+  else if(str=='Sat'){
+    str='Saturday'
+  }
+  else if(str=='Sun'){
+    str="Sunday"
+  }
+  return str
+}
 
 // document.querySelector('left-block__location-place').innerHTML = '<span id="city"></span>, <span id="country"></span>'
 
@@ -220,3 +288,13 @@ window.addEventListener('load', function() {
 //   second = document.getElementById('first')
 //   second.classList.add('opened')
 
+function createDivElement(className, innerText) {
+  const el = document.createElement('div');
+  el.classList.add(className);
+
+  if (innerText) {
+    el.innerText = innerText
+  }
+
+  return el;
+}

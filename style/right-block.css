@@ -41,7 +41,6 @@
     display: flex;
     flex-wrap: nowrap;
     background: #272E37;
-    border-radius: 10px;
     margin-bottom: 10%;
     
 }
@@ -313,6 +312,47 @@
         height:auto;
         width:auto;
     }
-
+    .right-block__weatherblock {
+        height:auto;
+    }
+    .right-block__textblock-str{
+        height: auto;
+        margin-bottom:5%
+    }
+    .right-block__textblock{
+        margin-bottom:15%;
+    }
+    .weatherblock__1st-unit__mark{
+        margin-top: 20%;
+        margin-bottom:20%;
+    }
+    .weatherblock__unit__mark{
+        margin-top: 20%;
+        margin-bottom:20%;
+    }
+    .weatherblock_1st-unit__temperature{
+        margin-bottom:20%;
+    }
+    .right-block__button {
+        font-size:calc(5*var(--space-16)) ;
+    }
+    .right-block__textblock__text {
+    font-size: calc(4*var(--space-16));
+    }
+    .right-block__textblock__percent{
+    font-size: calc(4*var(--space-16));
+    }
+    .weatherblock__unit__week{
+    font-size: calc(4*var(--space-16));
+    }
+    .weatherblock__unit__temperature{
+    font-size: calc(4*var(--space-16));
+    }
+    .weatherblock_1st-unit__week{
+    font-size: calc(5*var(--space-16));
+    }
+    .weatherblock_1st-unit__temperature{
+    font-size: calc(4*var(--space-16));
+    }
 }
     

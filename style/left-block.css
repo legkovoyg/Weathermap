@@ -168,6 +168,21 @@
     .left-block__temperature{
         height:auto;
     }
+    .left-block__week {
+    font-size: calc(4*var(--space-16));
+    }
+    .left-block__date {
+    font-size: calc(4*var(--space-16));
+    }
+    .left-block__location-place {
+    font-size: calc(4*var(--space-16));
+    }
+    .left-block__weather {
+    font-size: calc(4*var(--space-16));
+    }
+    .left-block__temperature {
+    font-size: calc(5*var(--space-16));
+    }
 
 };
     
