@@ -97,3 +97,4 @@ obj1.name = 'Sam';
 const clone2 = structuredClone(obj1);
 
 console.log(clone.name, clone.age,clone.children);
+console.log(clone2)

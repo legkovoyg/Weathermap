@@ -131,13 +131,36 @@ const locations = [
     }
   ];
 
+//City Select
+const citySelectElement = this.document.getElementById('city-select');
 
-    
+locations.forEach(location => {
+ const option = document.createElement('option');
+ option.innerText = `${location.name}, ${location.country}`;
+ option.value = location.id;
+ option.id = location.id
+ citySelectElement.appendChild(option);
+});
+let newCityClone = {};
+citySelectElement.onchange = function (){
+  const newCity = locations.find(location => location.id == citySelectElement.value);
+  for (let key in newCity){
+    newCityClone[key]=newCity[key]
+  }
+  console.log(newCity);
+  console.log(citySelectElement.value)};
+  console.log(newCityClone)
+
+
+
 //Сбор инфы с JSON
   window.addEventListener('load', function() {
   const [currentLocation] = locations;
   const { name, country, days } = currentLocation;
   const [ firstDay ] = days;
+  console.log(locations);
+  
+  
 //Переменные левый блок, верх
   const LeftWeekElement = document.getElementById('week');
   const LeftDateElement = document.getElementById('dateEl')
@@ -165,7 +188,7 @@ const locations = [
           image.src= WeatherToMark(weather);
           image.width=50;
      const markDayEl = createDivElement(markClassname);
-           markDayEl.append(image)
+           markDayEl.append(image);
      const dayElname = index!==0?'right-block__weatherblock__unit':'right-block__weatherblock__1st-unit';
      const dayEl = createDivElement(dayElname)
      dayEl.append(markDayEl);
@@ -174,20 +197,7 @@ const locations = [
      daysContainer.append(dayEl);
    });
 
-//City Select
-   const citySelectElement = this.document.getElementById('city-select');
-   locations.forEach(location => {
-    const option = document.createElement('option');
-    option.innerText = `${location.name}, ${location.country}`;
-    option.value = location.id;
-    console.log(option)
-    citySelectElement.appendChild(option);
-  })
-   const newCity = locations.find(location => location.id = citySelectElement.value);
-   const select = document.getElementById('city-select').selectedIndex;
-   console.log(select)
-   console.log(newCity);
-   console.log(citySelectElement)
+
    
 //Раскидывание данных по HTML
    if (cityElement) {
@@ -198,7 +208,6 @@ const locations = [
    }
    if (LeftWeekElement){
     LeftWeekElement.innerText = weekChanger(firstDay.date.slice(0,3))
-     console.log(firstDay.date.slice(0,3))
    }
    if (precipitationElement) {
      precipitationElement.innerText =  `${firstDay.precipitation} %`;
@@ -241,8 +250,7 @@ const locations = [
 //Делает первую букву заглавной
   function zaglav(str) {
     const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
-    console.log(capitalize(str));
-    return(capitalize(str)) 
+    return(capitalize(str)) ;
   }
 
 //Возвращает полное название недели 
@@ -287,18 +295,17 @@ const locations = [
   function WeatherToMark (weather){
     if (weather == 'sunny')
     {str ='./image/sunmark.svg'
-    console.log(weather)
     
     }
     else if (weather == 'rainy')
     {str ='./image/rainymark.svg'
-    console.log(weather)
     
     }
     else if (weather == 'cloudy')
     {str ='./image/cloudlymark.svg'
-    console.log(weather)
     
     }
     return str
   };
+
+  
