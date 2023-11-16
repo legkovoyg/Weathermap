@@ -19,16 +19,17 @@
     font-style: normal;
     flex-basis:520px;
     aspect-ratio: 520/623;
+    align-items: center;
 
 }
 .right-block__divider {
     margin-top: 55px;
     margin-left: 50px;
     margin-right:50px;
-    margin-bottom:62px;
     display: flex;
     flex-direction: column; 
     height:auto;
+    width:80%
 
 }
 
@@ -137,8 +138,7 @@
     justify-content: center;
     margin-bottom: 15px;
     margin-top:15px;
-    background-color: var(--whitec);;
-    
+    filter:invert(1)
     
 }
 .weatherblock_1st-unit__week{
@@ -343,16 +343,16 @@
     font-size: calc(4*var(--space-16));
     }
     .weatherblock__unit__week{
-    font-size: calc(4*var(--space-16));
+    font-size: calc(3*var(--space-16));
     }
     .weatherblock__unit__temperature{
-    font-size: calc(4*var(--space-16));
+    font-size: calc(3*var(--space-16));
     }
     .weatherblock_1st-unit__week{
-    font-size: calc(5*var(--space-16));
+    font-size: calc(3*var(--space-16));
     }
     .weatherblock_1st-unit__temperature{
-    font-size: calc(4*var(--space-16));
+    font-size: calc(3*var(--space-16));
     }
 }
     
