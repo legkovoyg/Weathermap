@@ -21,7 +21,7 @@ const locations = [
           "temperature": 24,
           "precipitation": 5,
           "humidity": 64,
-          "wind": 4
+          "wind": 150
         },
         {
           "id": 3,
@@ -30,7 +30,7 @@ const locations = [
           "temperature": 18,
           "precipitation": 10,
           "humidity": 80,
-          "wind": 5
+          "wind": 320
         },
         {
           "id": 4,
@@ -39,7 +39,7 @@ const locations = [
           "temperature": 29,
           "precipitation": 4,
           "humidity": 60,
-          "wind": 4
+          "wind": 550
         }
       ]
     },
