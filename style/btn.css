@@ -19,9 +19,7 @@
     opacity:0.7;
 }
 
-.btn:hover{
-    opacity:0.7;
-}
+
 
 .btn--full-width {
     width: 70%;
@@ -44,6 +42,26 @@
     width:70%;
     font-size: calc(2*var(--space-12));
 }
+.Buetton {
+    border:none;
+    background: none;
+    width:100%;
+    height:100%;
+    border-radius: 10px;
+    
+}
+
+
+.BuettonActive{
+    background:black;
+    color:#000;
+    width:100%;
+    height:100%;
+    border-radius: 10px;
+    border:none;
+    filter:invert(1)
+}
+
 
 @media screen and (max-width:1000px) {
 .btn{

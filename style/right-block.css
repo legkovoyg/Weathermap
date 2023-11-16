@@ -43,6 +43,7 @@
     flex-wrap: nowrap;
     background: #272E37;
     margin-bottom: 10%;
+    border-radius: 10px;
     
 }
 .right-block__button {
@@ -91,6 +92,9 @@
     height:100%;
     flex-shrink: 0;
     flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
     
 
 }
@@ -131,6 +135,8 @@
     border-radius: 10px;
     background: var(--whitec);
     box-shadow: 1px 2px 4px 0px #222831;
+    display: flex;
+    justify-content: center;
 }
     
 .weatherblock__1st-unit__mark {

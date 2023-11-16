@@ -8,8 +8,51 @@ const locations = [
         {
           "id": 1,
           "date": "Thu Nov 09 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "sunny",
+          "weather": "cloudy",
           "temperature": 29,
+          "precipitation": 0,
+          "humidity": 42,
+          "wind": 3
+        },
+        {
+          "id": 2,
+          "date": "Fri Nov 10 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
+          "weather": "cloudy",
+          "temperature": 24,
+          "precipitation": 5,
+          "humidity": 64,
+          "wind": 4
+        },
+        {
+          "id": 3,
+          "date": "Sat Nov 11 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
+          "weather": "cloudy",
+          "temperature": 18,
+          "precipitation": 10,
+          "humidity": 80,
+          "wind": 5
+        },
+        {
+          "id": 4,
+          "date": "Sun Nov 12 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
+          "weather": "cloudy",
+          "temperature": 29,
+          "precipitation": 4,
+          "humidity": 60,
+          "wind": 4
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Moscow",
+      "country": "RU",
+      "days": [
+        {
+          "id": 1,
+          "date": "Thu Nov 09 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
+          "weather": "sunny",
+          "temperature": 220,
           "precipitation": 0,
           "humidity": 42,
           "wind": 3
@@ -35,49 +78,6 @@ const locations = [
         {
           "id": 4,
           "date": "Sun Nov 12 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "sunny",
-          "temperature": 29,
-          "precipitation": 4,
-          "humidity": 60,
-          "wind": 4
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Moscow",
-      "country": "RU",
-      "days": [
-        {
-          "id": 1,
-          "date": "Thu Nov 09 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "sunny",
-          "temperature": 220,
-          "precipitation": 0,
-          "humidity": 42,
-          "wind": 3
-        },
-        {
-          "id": 2,
-          "date": "Thu Nov 10 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "cloudy",
-          "temperature": 24,
-          "precipitation": 5,
-          "humidity": 64,
-          "wind": 4
-        },
-        {
-          "id": 3,
-          "date": "Thu Nov 11 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "rainy",
-          "temperature": 18,
-          "precipitation": 10,
-          "humidity": 80,
-          "wind": 5
-        },
-        {
-          "id": 4,
-          "date": "Thu Nov 12 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
           "weather": "sunny",
           "temperature": 29,
           "precipitation": 4,
@@ -130,6 +130,7 @@ const locations = [
       ]
     }
   ];
+const daysNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 
   const App = {
@@ -208,23 +209,52 @@ const locations = [
       daysContainer.innerHTML = '';
 
       console.log(daysContainer);
-      days.forEach((day, index) => {
-        const { temperature, date, weather } = day;
-        const weekdayClassname = index !== 0 ? 'weatherblock__unit__week' : 'weatherblock_1st-unit__week';
-        const tempClassname = index!==0 ?'weatherblock__unit__temperature':'weatherblock_1st-unit__temperature';
-        const markClassname = index!==0 ? 'weatherblock__unit__mark':'weatherblock__1st-unit__mark';
-        const weekDayEl = createDivElement(weekdayClassname, date.slice(0,3));
+      days.forEach((day) => {
+        const { temperature, date, weather,precipitation,humidity,windElement } = day;
+        const weekdayClassname = 'weatherblock__unit__week';
+        const tempClassname = 'weatherblock__unit__temperature';
+        const markClassname = 'weatherblock__unit__mark';
+      //Все про кнопку
+        const btnElement = document.createElement('button')
+        btnElement.classList.add('Buetton')
+        btnElement.id = day.id
+        console.log(btnElement)
+        
+        
+        btnElement.addEventListener('click',()=>{
+          btnElement.classList.toggle('BuettonActive')
+          if (precipitationElement) {
+            precipitationElement.innerText = '';
+            precipitationElement.innerText =  `${day.precipitation} %`;
+          };
+          if (humidityElement){
+            humidityElement.innerText =' ';
+            humidityElement.innerText = day.humidity + ' %'
+          };
+          if (windElement) {
+            windElement.innerText = ' ';
+            windElement.innerText = day.wind + ' km/h';
+          }
+        })
+        const formattedDate = new Date(date);
+
+        const weekDayEl = createDivElement(weekdayClassname, daysNames[formattedDate.getDay()]);
         const tempDayEl = createDivElement(tempClassname, temperature +'°C');
         const image = document.createElement('img');
               image.src= WeatherToMark(weather);
               image.width=50;
         const markDayEl = createDivElement(markClassname);
               markDayEl.append(image);
-        const dayElname = index!==0?'right-block__weatherblock__unit':'right-block__weatherblock__1st-unit';
+        const dayElname = 'right-block__weatherblock__unit';
         const dayEl = createDivElement(dayElname)
-        dayEl.append(markDayEl);
-        dayEl.append(weekDayEl);
-        dayEl.append(tempDayEl);
+
+        
+        
+        
+        btnElement.append(markDayEl);
+        btnElement.append(weekDayEl);
+        btnElement.append(tempDayEl);
+        dayEl.append(btnElement);
         daysContainer.append(dayEl);
       });
     
@@ -295,7 +325,7 @@ function weekChanger(str) {
   else if (str=='Thu'){
     str='Thursday'
   }
-  else if (str=='Fry'){
+  else if (str=='Fri'){
     str='Friday'
   }
   else if(str=='Sat'){
