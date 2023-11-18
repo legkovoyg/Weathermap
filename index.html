@@ -13,25 +13,7 @@
     </style>
 </head>
 <body>
-
-
     <div class = "container">
-        <div class="modal closed" id="first">
-            <div class="modal-window">
-                <div>Select location</div>
-                <select class="select" id="city-select">
-                  
-                </select>
-                <div class="twobuttons">
-                <button class="btn js-close-modal">Cancel</button>
-                <button class="btn js-close-modal"> OK</button>
-                </div>
-            </div>
-            <div class="modal-overlay js-close-modal">
-    
-            </div>
-        </div>
-
         <div class = "left-block">
             <div class = "left-block__divider"> 
                 <div>
@@ -55,8 +37,8 @@
 
 
                 <div>
-                    <div class = "left-block__weather-mark">
-                        <img src = "image/sunmark.svg">
+                    <div class = "left-block__weather-mark" id="imagecontainer">
+                        
                     </div>
                     <div class="left-block__temperature">   
                         <span id="Temperature"></span>
@@ -69,9 +51,6 @@
 
 
             </div>
-           
-            
-
         </div>
 
         <div class = "right-block"> 
@@ -79,10 +58,9 @@
             <div class="right-block__divider">
                 
                 <div class="right-block__textblock">
-                    
                     <div class = "right-block__textblock-str">
                         <div class = "right-block__textblock__text">
-                            PRECIPITATION
+                            PRESSURE
                         </div>
                         <div class = "right-block__textblock__percent">
                             <span id="first-percent"></span>
@@ -109,15 +87,15 @@
                 <div class="right-block__weatherblock">
                 </div>
             </div>
-                <button class="Main-btn js-open-modal" id="changelocbutt">
-                    <img src="image/locationmark.png" width="33px" height="33px">
-                    Change location
-            </button>
-                
-            </div>
-
+                <div class="search-box">
+                    <img src="/image/locationmark.png" width="30px" height="30px">
+                    <input type="text" placeholder="Enter your location">
+                    <button class ="fa-solid fa-magnifying glass">
+                        <img src="/image/findmark.png" width="30px" height="30px" filter="invert(1)">
+                    </button>
+                </div>
         </div>
-        
+
     </div>
     <script src="./app.js"></script>
 </body>

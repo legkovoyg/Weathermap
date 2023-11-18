@@ -4,7 +4,9 @@
     --space-12: calc(3 * var(--space-base));
     --space-16: calc(4 * var(--space-base));
     --whitec: #FFF;
-    --blackc: #000
+    --blackc: #000;
+    --backcolor: #222831;
+    --beautifulBlue:linear-gradient(91deg, rgba(144, 217, 224, 0.90) 0.2%, rgba(84, 96, 230, 0.90) 100%);
     
 }
 
@@ -12,7 +14,7 @@
     display: flex;
     border-top-right-radius: 25px;
     border-bottom-right-radius:25px;
-    background-color: #222831;
+    background-color: var(--backcolor);
     flex-shrink: 0;     
     flex-direction: column;
     line-height: normal;
@@ -48,7 +50,7 @@
 }
 .right-block__button {
     border-radius: 10px;
-    background: linear-gradient(91deg, rgba(144, 217, 224, 0.90) 0.2%, rgba(84, 96, 230, 0.90) 100%);
+    background: var(--beautifulBlue);
     width: 100%;
     height: 53px;
     display: flex;
@@ -134,7 +136,7 @@
     background-color: var(--whitec);
     border-radius: 10px;
     background: var(--whitec);
-    box-shadow: 1px 2px 4px 0px #222831;
+    box-shadow: 1px 2px 4px 0px var(--backcolor);
     display: flex;
     justify-content: center;
 }
@@ -235,7 +237,68 @@
     background-size: .65em auto, 100%; 
     } 
     
+    .search-box{
+    border: none;
+    border-radius: 10px;
+    background: var(--beautifulBlue);
+    color: var(--whitec);
+    font-family: Montserrat;
+    font-size: 2em;
+    font-weight: 600;
+    opacity: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+    cursor: pointer;
+    font-size: calc(2*var(--space-12));
+    }
+    .search-box input{
+    color:var(--whitec);
+    font-size: calc(2*var(--space-12));
+    font-weight: 400;
+    background: none;
+    border:none;
+    font-family: Montserrat;
     
+
+
+    }
+    .search-box input ::placeholder{
+    color:white;
+    font-weight: 400;
+    font-size: calc(2*var(--space-12));
+    text-transform: capitalize;
+    font-family: Montserrat;
+
+    }
+    .search-box button {
+    cursor:pointer;
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    font-size: calc(2*var(--space-12));
+    font-family: Montserrat;
+    background: none;
+    border:none;
+
+    }
+    .search-box button{
+    color:#FFF;
+
+    }
+    .fa-location-dot{
+    position: absolute;
+    color:white;
+    font-size:20px;
+    font-family: Montserrat;
+    }
+    .fa-solid {
+        filter:invert(1);
+    }
+
+
 
 
 @media screen and (max-width:1000px) {
@@ -300,6 +363,11 @@
         flex-direction: column;
         font-size:calc(2*var(--space-12));
         justify-content: space-around;
+    }
+    .fa-location-dot {
+        position: absolute;
+        color:var(--backcolor);
+        font-size: 20px;
     }
     
     

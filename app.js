@@ -1,320 +1,141 @@
 //JSON
-const locations = [
-    {
-      "id": 1,
-      "name": "Biarritz",
-      "country": "FR",
-      "days": [
-        {
-          "id": 1,
-          "date": "Thu Nov 09 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "cloudy",
-          "temperature": 29,
-          "precipitation": 0,
-          "humidity": 42,
-          "wind": 3
-        },
-        {
-          "id": 2,
-          "date": "Fri Nov 10 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "cloudy",
-          "temperature": 24,
-          "precipitation": 5,
-          "humidity": 64,
-          "wind": 150
-        },
-        {
-          "id": 3,
-          "date": "Sat Nov 11 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "cloudy",
-          "temperature": 18,
-          "precipitation": 10,
-          "humidity": 80,
-          "wind": 320
-        },
-        {
-          "id": 4,
-          "date": "Sun Nov 12 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "cloudy",
-          "temperature": 29,
-          "precipitation": 4,
-          "humidity": 60,
-          "wind": 550
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Moscow",
-      "country": "RU",
-      "days": [
-        {
-          "id": 1,
-          "date": "Thu Nov 09 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "sunny",
-          "temperature": 220,
-          "precipitation": 0,
-          "humidity": 42,
-          "wind": 3
-        },
-        {
-          "id": 2,
-          "date": "Fri Nov 10 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "cloudy",
-          "temperature": 24,
-          "precipitation": 5,
-          "humidity": 64,
-          "wind": 4
-        },
-        {
-          "id": 3,
-          "date": "Sat Nov 11 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "rainy",
-          "temperature": 18,
-          "precipitation": 10,
-          "humidity": 80,
-          "wind": 5
-        },
-        {
-          "id": 4,
-          "date": "Sun Nov 12 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "sunny",
-          "temperature": 29,
-          "precipitation": 4,
-          "humidity": 60,
-          "wind": 4
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "London",
-      "country": "UK",
-      "days": [
-        {
-          "id": 1,
-          "date": "Thu Nov 09 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "sunny",
-          "temperature": 150,
-          "precipitation": 0,
-          "humidity": 42,
-          "wind": 3
-        },
-        {
-          "id": 2,
-          "date": "Thu Nov 10 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "cloudy",
-          "temperature": 24,
-          "precipitation": 5,
-          "humidity": 64,
-          "wind": 4
-        },
-        {
-          "id": 3,
-          "date": "Thu Nov 11 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "rainy",
-          "temperature": 18,
-          "precipitation": 10,
-          "humidity": 80,
-          "wind": 5
-        },
-        {
-          "id": 4,
-          "date": "Thu Nov 12 2023 18:21:45 GMT+0500 (Yekaterinburg Standard Time)",
-          "weather": "sunny",
-          "temperature": 29,
-          "precipitation": 4,
-          "humidity": 60,
-          "wind": 4
-        }
-      ]
-    }
-  ];
-const daysNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+const apiKey = "8adf22bde9cee0ca13a5012d5a4ce2b6";
+const apiUrl = `http://api.openweathermap.org/data/2.5/forecast?&units=metric&q=`
+const searchboxInput = document.querySelector('search-box input');
+const searchboxButton = document.querySelector('search-box button');
+let str;
+let monthName;
+let city = 'Ufa';
 
 
-  const App = {
-    init() {
-      //Сбор инфы с JSON
-      const [currentLocation] = locations;
-      this.showLocation(currentLocation);
-
-      this.modal();
-      this.selectListener();
-    },
-
-    modal() {
-      //Модальное окно
-      const modalElement = document.getElementById('first'); 
-      if (modalElement) {
-        document.querySelectorAll('.js-open-modal').forEach(button => {
-          button.addEventListener('click', () => {
-            modalElement.classList.remove('closed');
-          })
-        });
-
-        document.querySelectorAll('.js-close-modal').forEach(button => {
-          button.addEventListener('click',()=>{
-            modalElement.classList.add('closed');
-          })
-        });
-      }
-    },
-
-    selectListener() {
-      //City Select
-      const citySelectElement = document.getElementById('city-select');
-
-      citySelectElement.onchange =  () => {
-        const newCity = locations.find(location => location.id == citySelectElement.value);
-        console.log(this);
-        this.showLocation(newCity);
-      };
-
-      this.createSelectOptions(citySelectElement);
-    },
-
-    createSelectOptions(citySelectElement) {
-      locations.forEach(location => {
-        const option = document.createElement('option');
-        option.innerText = `${location.name}, ${location.country}`;
-        option.value = location.id;
-        option.id = location.id
-        citySelectElement.appendChild(option);
-      });
-    },
+async function takeInfo(city){
     
-    showLocation(location) {
-      const { name, country, days } = location;
-      const [ firstDay ] = days;
-      console.log(locations);
-      
-      
-    //Переменные левый блок, верх
-      const LeftWeekElement = document.getElementById('week');
-      const LeftDateElement = document.getElementById('dateEl')
-      const cityElement = document.getElementById('city');
-      const countryElement = document.getElementById('country');
-    //Переменные левый блок, низ
-      const LeftWeatherElementMark = document.getElementById('left-block__location-mark')
-      const LeftTempElement = document.getElementById('Temperature')
-      const LeftWeatherElement = document.getElementById('WeatherEl')
-    //Переменные правый блок, верх
-      const precipitationElement = document.getElementById('first-percent');
-      const humidityElement = document.getElementById('second-percent');
-      const windElement = document.getElementById('WindPercent');
-        
-    //Weatherblock
-      const daysContainer = document.querySelector('.right-block__weatherblock');
-      daysContainer.innerHTML = '';
+  const result = await fetch(apiUrl+city `&appid=${apiKey}`);
+  const data = await result.json();
+  console.log (data, "data");
+  
 
-      console.log(daysContainer);
-      days.forEach((day) => {
-        const { temperature, date, weather,precipitation,humidity,windElement } = day;
-        const weekdayClassname = 'weatherblock__unit__week';
-        const tempClassname = 'weatherblock__unit__temperature';
-        const markClassname = 'weatherblock__unit__mark';
-      //Все про кнопку
-        const btnElement = document.createElement('button')
+  //Переменные левый блок, верх
+  const LeftWeekElement = document.getElementById('week');
+  const LeftDateElement = document.getElementById('dateEl')
+  const cityElement = document.getElementById('city');
+  const countryElement = document.getElementById('country');
+  const novayadata = new(Date)(data.list[0].dt_txt)
+
+  //Переменные правый блок, верх
+  const pressureElement = document.getElementById('first-percent');
+  const humidityElement = document.getElementById('second-percent');
+  const windElement = document.getElementById('WindPercent');
+
+ //Переменные левый блок, низ
+  const LeftTempElement = document.getElementById('Temperature')
+  const LeftWeatherElement = document.getElementById('WeatherEl')
+  const LeftWeatherElementMark = document.getElementsByClassName("left-block__weather-mark")
+
+//Раскидывание данных по HTML
+  if (LeftWeekElement){
+      LeftWeekElement.innerText = getWeekName(novayadata.getDay())};
+
+  if (LeftDateElement){
+      LeftDateElement.innerText = `${novayadata.getDate()} ${getMonthName(novayadata.getMonth())} ${novayadata.getFullYear()}`};
+
+
+  if (cityElement) {
+      cityElement.innerText = data.city.name};
+
+  if (countryElement) { 
+      countryElement.innerText = data.city.country};
+
+  if (LeftTempElement){
+      LeftTempElement.innerText = Math.round(data.list[0].main.temp) + '°C'};
+
+  if (LeftWeatherElement){
+      LeftWeatherElement.innerText=MakeZaglav(`${data.list[0].weather[0].description}`)};
+
+  if (LeftWeatherElementMark){
+          const image1 = document.createElement('img');
+                image1.src = WeatherToIcon(data.list[0].weather[0].icon);
+                image1.alt = 'Описание изображения';
+          const container = document.querySelector('#imagecontainer')
+                container.append(image1)};
+  
+  if (pressureElement) {
+    pressureElement.innerText =  Math.round(data.list[0].main.pressure) +' hPa'};
+
+  if (humidityElement){
+      humidityElement.innerText = `${data.list[0].main.humidity} %`};
+
+  if (windElement) {
+      windElement.innerText = Math.round(data.list[0].wind.speed) + ' km/h'};
+
+
+   
+  let name = data.city.name;
+  let country = data.city.country;
+  let days = [data.list[0],data.list[8],data.list[16],data.list[24]];
+
+
+
+
+//Weatherblock
+
+  const daysContainer = document.querySelector('.right-block__weatherblock');
+        daysContainer.innerHTML = ''  
+  days.forEach((day,index) => {
+  const dayiter  = day;
+  const markClassname = 'weatherblock__unit__mark';
+  const weekdayClassname = 'weatherblock__unit__week';
+  const tempClassname = 'weatherblock__unit__temperature';
+  const dayElname = 'right-block__weatherblock__unit';
+  
+  //Все про кнопку
+  const btnElement = document.createElement('button')
         btnElement.classList.add('Buetton')
-        btnElement.id = day.id
-        console.log(btnElement)
-        
-        
+        btnElement.id = dayiter.id
         btnElement.addEventListener('click',()=>{
-          btnElement.classList.toggle('BuettonActive')
-          if (precipitationElement) {
-            precipitationElement.innerText = '';
-            precipitationElement.innerText =  `${day.precipitation} %`;
-          };
-          if (humidityElement){
-            humidityElement.innerText =' ';
-            humidityElement.innerText = day.humidity + ' %'
-          };
-          if (windElement) {
-            windElement.innerText = ' ';
-            windElement.innerText = day.wind + ' km/h';
-          }
-        })
-        const formattedDate = new Date(date);
-
-        const weekDayEl = createDivElement(weekdayClassname, daysNames[formattedDate.getDay()]);
-        const tempDayEl = createDivElement(tempClassname, temperature +'°C');
-        const image = document.createElement('img');
-              image.src= WeatherToMark(weather);
-              image.width=50;
-        const markDayEl = createDivElement(markClassname);
-              markDayEl.append(image);
-        const dayElname = 'right-block__weatherblock__unit';
-        const dayEl = createDivElement(dayElname)
-
-        
-        
-        
-        btnElement.append(markDayEl);
-        btnElement.append(weekDayEl);
-        btnElement.append(tempDayEl);
-        dayEl.append(btnElement);
-        daysContainer.append(dayEl);
-      });
-    
-    
-      
-    //Раскидывание данных по HTML
-      if (cityElement) {
-          cityElement.innerText = name;
-      }
-      if (countryElement) { 
-          countryElement.innerText = country;
-      }
-      if (LeftWeekElement){
-        LeftWeekElement.innerText = weekChanger(firstDay.date.slice(0,3))
-      }
-      if (precipitationElement) {
-        precipitationElement.innerText =  `${firstDay.precipitation} %`;
-      }
-      if (humidityElement){
-        humidityElement.innerText = firstDay.humidity + ' %'
-      }
-      if (windElement) {
-        windElement.innerText = firstDay.wind + ' km/h';
-      }
-      if (LeftTempElement){
-        LeftTempElement.innerText = firstDay.temperature + '°C'
-      }
-      if (LeftWeatherElement){
-        LeftWeatherElement.innerText=zaglav(firstDay.weather)
-      }
-      if (LeftDateElement){
-        LeftDateElement.innerText = firstDay.date.slice(4,15)
-      }
-      if (LeftWeatherElementMark){
-      } 
-    }
+        btnElement.classList.toggle('BuettonActive')
+  if (pressureElement) {
+      pressureElement.innerText = '';
+      pressureElement.innerText =  `${dayiter.main.pressure} hPa`;
   };
+  if (humidityElement){
+      humidityElement.innerText =' ';
+      humidityElement.innerText = Math.round(dayiter.main.humidity) + ' %'
+  };
+  if (windElement) {
+      windElement.innerText = ' ';
+      windElement.innerText = Math.round(dayiter.wind.speed) + ' km/h';
+  };
+  })
+  const DayDate = new(Date)(dayiter.dt_txt)
+  const weekDayEl = createDivElement(weekdayClassname, getCuttedWeekName(DayDate.getDay()));
+  const tempDayEl = createDivElement(tempClassname, Math.round(dayiter.main.temp));
+  const image = document.createElement('img');
+        image.src= WeatherToIcon(dayiter.weather[0].icon);
+        image.width=50;
+  const markDayEl = createDivElement(markClassname);
+        markDayEl.append(image);
+  const dayEl = createDivElement(dayElname);  
 
 
 
-
-
-
-
-
-window.addEventListener('load', function() {
- App.init();
+  btnElement.append(markDayEl);
+  btnElement.append(weekDayEl);
+  btnElement.append(tempDayEl);
+  dayEl.append(btnElement);
+  daysContainer.append(dayEl);
 });
 
-
-//Делает первую букву заглавной
-function zaglav(str) {
+// Делает первую букву заглавной
+function MakeZaglav(str) {
   const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
   return(capitalize(str)) ;
 }
-
 //Возвращает полное название недели 
 function weekChanger(str) {
   if (str=='Mon'){
-    str=Monday
+    str='Monday'
   }
   else if  (str=="Thu"){
     str="Thursday"
@@ -336,10 +157,9 @@ function weekChanger(str) {
   }
   return str
 }
-
 //Создание div элемента
 function createDivElement(className, innerText) {
-  const el = document.createElement('div');
+  const el = this.document.createElement('div');
   el.classList.add(className);
 
   if (innerText) {
@@ -347,21 +167,73 @@ function createDivElement(className, innerText) {
   }
 
   return el;
-}
-
-//Отдает на погоду соответствующую иконку погоды
-function WeatherToMark (weather){
-  if (weather == 'sunny')
-  {str ='./image/sunmark.svg'
-  
-  }
-  else if (weather == 'rainy')
-  {str ='./image/rainymark.svg'
-  
-  }
-  else if (weather == 'cloudy')
-  {str ='./image/cloudlymark.svg'
-  
-  }
+};
+// Преобразование числа от getDay в строку с названием дня недели
+function getWeekName(daynumber){
+  if (daynumber == 1){str = 'Monday'}
+  else if (daynumber ==2 ) {str = 'Tuesday'}
+  else if (daynumber == 3) {str = 'Wednesday'}
+  else if (daynumber == 4) {str = "Thursday"}
+  else if (daynumber == 5) {str = 'Friday'}
+  else if (daynumber == 6) {str ='Saturday'}
+  else if (daynumber == 0) {str = 'Sunday'}
   return str
 };
+function getCuttedWeekName (daynumber){
+  if (daynumber == 1){str = 'Mon'}
+  else if (daynumber ==2 ) {str = 'Tue'}
+  else if (daynumber == 3) {str = 'Wed'}
+  else if (daynumber == 4) {str = "Thu"}
+  else if (daynumber == 5) {str = 'Fri'}
+  else if (daynumber == 6) {str ='Sat'}
+  else if (daynumber == 0) {str = 'Sun'}
+  return str
+}
+// Преобразование числа от getMonth в строку с названием месяца
+function getMonthName (month){
+  if (month==0) {monthName = "Jan"}
+  else if (month==1)   {monthName = "Feb"}
+  else if (month==2)      {monthName = "March"}
+  else if (month==3)    {monthName = "April"}
+  else if (month==4)       {monthName = "May"}
+  else if (month==5)      {monthName = "Jun"}
+  else if (month==6)      {monthName = "Jul"}
+  else if (month==7)    {monthName = "Aug"}
+  else if (month==8)  {monthName = "Sep"}
+  else if (month==9)   {monthName = "Oct"}
+  else if (month==10)   {monthName = "Nov"}
+  else if (month==11)  {monthName = "Dec"}
+  return monthName
+};
+// Иконки с погодой
+function WeatherToIcon (iconid){
+if (iconid =="01d" ) {img = '/image/sunmark.svg'}  
+else if (iconid =="02d" ) {img = '/image/cloudlymark.svg'}
+else if (iconid =="03d") {img = '/image/cloudlymark.svg'}
+else if (iconid =="04d") {img = '/image/cloudlymark.svg'}
+else if (iconid =="09d") {img = '/image/rainymark.svg'}
+else if (iconid =="10d") {img = '/image/rainymark.svg'}
+else if (iconid =="11d") {img = '/image/rainymark.svg'}
+else if (iconid =="13d") {img = '/image/snowmark.svg'}  
+else if (iconid =="50d") {img = '/image/mistmark.svg'}
+else if (iconid =="01n" ) {img = '/image/sunmark.svg'}  
+else if (iconid =="02n" ) {img = '/image/cloudlymark.svg'}
+else if (iconid =="03n") {img = '/image/cloudlymark.svg'}
+else if (iconid =="04n") {img = '/image/cloudlymark.svg'}
+else if (iconid =="09n") {img = '/image/rainymark.svg'}
+else if (iconid =="10n") {img = '/image/rainymark.svg'}
+else if (iconid =="11n") {img = '/image/rainymark.svg'}
+else if (iconid =="13n") {img = '/image/snowmark.svg'}  
+else if (iconid =="50n") {img = '/image/mistmark.svg'}
+return img
+};
+
+};
+// //Search Button
+// window.onload = function(){
+// searchboxButton.addEventListener("click",()=>{
+//   takeInfo(searchboxInput.value);
+//   searchboxInput.value='';
+// })
+// };
+window.onload.takeInfo();
