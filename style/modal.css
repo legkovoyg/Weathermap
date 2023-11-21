@@ -1,0 +1,102 @@
+
+
+:root {
+    --space-base: 4px;
+    --space-8: calc(2 * var(--space-base));
+    --space-12: calc(3 * var(--space-base));
+    --space-16: calc(4 * var(--space-base));
+    --whitec: #FFF;
+    --blackc: #000;
+    --backcolor: #222831;
+    --beautifulBlue:linear-gradient(91deg, rgba(144, 217, 224, 0.90) 0.2%, rgba(84, 96, 230, 0.90) 100%);
+    --beutifulRed:linear-gradient(91deg,rgba(224,151,144,0.90)0.2%, rgba(230,218,84,0.90)100%);
+}
+
+.modal {
+    width:100vw;
+    height:100vh;
+    position:absolute;
+    z-index:999;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--backcolor);
+    flex-direction: column;
+}
+.modal-window {
+    width:30%;
+    height:10%;
+    background: var(--beautifulBlue);
+    border-radius: 50px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:2%;
+
+
+}
+
+.modal input{
+    color:var(--whitec);
+    font-size: calc(2*var(--space-12));
+    font-weight: 400;
+    background: none;
+    width:80%;
+    border:none;
+    font-family: Montserrat;
+    font-size: 150%;
+    
+
+
+}
+.closed {
+    display:none;
+}
+
+.error {
+    background: var(--beutifulRed);
+    height:auto;
+    width:auto;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: calc(1*var(--space-12));
+    padding:2px 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color:var(--blackc)
+}
+
+.modal input ::placeholder{
+    color:var(--whitec);
+    font-weight: 400;
+    font-size: calc(2*var(--space-12));
+    text-transform: capitalize;
+    font-family: Montserrat;
+
+}
+.modal button {
+    cursor:pointer;
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    font-size: calc(2*var(--space-12));
+    font-family: Montserrat;
+    background: none;
+    border:none;
+    
+
+}
+.modal button{
+    color:var(--whitec);
+
+}
+.fa-location-dot{
+    position: absolute;
+    color:var(--whitec);
+    font-size:20px;
+    font-family: Montserrat;
+    padding-left:10%;
+}
+.fa-solid {
+    filter:invert(1);
+}

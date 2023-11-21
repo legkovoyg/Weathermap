@@ -1,7 +1,6 @@
 *,*::before,*::after{
     box-sizing: border-box;
-}
-
+};
 
 
 :root {
@@ -10,12 +9,12 @@
     --space-12: calc(3 * var(--space-base));
     --space-16: calc(4 * var(--space-base));
     --whitec: #FFF;
-    --blackc: #000
-    
+    --blackc: #000;
+    --backcolor: #222831;
+    --beautifulBlue:linear-gradient(91deg, rgba(144, 217, 224, 0.90) 0.2%, rgba(84, 96, 230, 0.90) 100%);
 }
 
 body {
-    
     background-color: #343D4B;
     color: var(--whitec);
     width: 100vw;

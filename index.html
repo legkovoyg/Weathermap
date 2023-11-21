@@ -14,6 +14,16 @@
 </head>
 <body>
     <div class = "container">
+        <div class="modal" id ="modalwindow">
+            <div class="modal-window">
+                <img src="/image/locationmark.png" width="30px" height="30px">
+                <input type="text" placeholder="Enter your location" id="inputModal">
+                <button class ="fa-solid fa-magnifying glass" id="OpenButton">
+                    <img src="/image/findmark.png" width="30px" height="30px" filter="invert(1)">
+                </button>
+            </div>
+            <div class = "error closed" id="closed"> Введите правильное название города </div>
+        </div>
         <div class = "left-block">
             <div class = "left-block__divider"> 
                 <div>
@@ -89,9 +99,9 @@
             </div>
                 <div class="search-box">
                     <img src="/image/locationmark.png" width="30px" height="30px">
-                    <input type="text" placeholder="Enter your location">
+                    <input type="text" placeholder="Enter your location" id="inputSearch-box">
                     <button class ="fa-solid fa-magnifying glass">
-                        <img src="/image/findmark.png" width="30px" height="30px" filter="invert(1)">
+                        <img src="/image/findmark.png" width="30px" height="30px" filter="invert(1)" id="OpenButton2">
                     </button>
                 </div>
         </div>

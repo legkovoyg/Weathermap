@@ -1,21 +1,56 @@
-//JSON
-
 const apiKey = "8adf22bde9cee0ca13a5012d5a4ce2b6";
-const apiUrl = `http://api.openweathermap.org/data/2.5/forecast?&units=metric&q=`
-const searchboxInput = document.querySelector('search-box input');
-const searchboxButton = document.querySelector('search-box button');
+const getApiUrl = (apiKey, cityName) => `https://api.openweathermap.org/data/2.5/forecast?&units=metric&q=${cityName}&appid=${apiKey}`;
+const searchboxInput = document.getElementById('inputModal');
+const searchboxButton = document.querySelector('modal button');
+const searchboxInput2 = document.getElementById('inputSearch-box')
+const searchboxButton2 = document.getElementById('OpenButton2')
+const errorWindow = document.getElementById('closed')
+const ModalWindow = document.getElementById("modalwindow");
 let str;
 let monthName;
-let city = 'Ufa';
 
-
+//Обращение к функции после загрузки страницы
+window.onload = function() {
+  CityFinder()
+}
+//Модальное окно, поиск города
+async function CityFinder (){
+  const OpenBtn = document.getElementById('OpenButton');
+        OpenBtn.addEventListener('click',()=>{
+        ModalWindow.classList.add('closed')
+        let city = searchboxInput.value;
+        startApp(city)
+        NewCity()
+        searchboxInput.value='';
+        })
+};
+//
 async function takeInfo(city){
-    
-  const result = await fetch(apiUrl+city `&appid=${apiKey}`);
-  const data = await result.json();
-  console.log (data, "data");
-  
+  try {
+    const result = await fetch(getApiUrl(apiKey, city));
 
+    if (result.status !== 200) {
+      console.error('Error:', data.message);
+      
+      return;
+    }
+
+    return await result.json();
+  } catch (error) {
+    console.log('Error: ', error);
+  }
+  
+};
+
+
+async function startApp(city){
+  const data = await takeInfo(city);
+  console.log ("###: data", data);
+
+  if (!data) {
+    return;
+  }
+  
   //Переменные левый блок, верх
   const LeftWeekElement = document.getElementById('week');
   const LeftDateElement = document.getElementById('dateEl')
@@ -32,6 +67,7 @@ async function takeInfo(city){
   const LeftTempElement = document.getElementById('Temperature')
   const LeftWeatherElement = document.getElementById('WeatherEl')
   const LeftWeatherElementMark = document.getElementsByClassName("left-block__weather-mark")
+  const CreatedLeftWeatherElementMark = document.getElementById('LeftWeatherMark')
 
 //Раскидывание данных по HTML
   if (LeftWeekElement){
@@ -52,11 +88,19 @@ async function takeInfo(city){
 
   if (LeftWeatherElement){
       LeftWeatherElement.innerText=MakeZaglav(`${data.list[0].weather[0].description}`)};
+  if (CreatedLeftWeatherElementMark){
 
+  }
+  if (CreatedLeftWeatherElementMark){
+    CreatedLeftWeatherElementMark.remove();
+  }
   if (LeftWeatherElementMark){
           const image1 = document.createElement('img');
+                image1.id = 'LeftWeatherMark'
                 image1.src = WeatherToIcon(data.list[0].weather[0].icon);
                 image1.alt = 'Описание изображения';
+                image1.width = 100;
+                image1.height = 100;
           const container = document.querySelector('#imagecontainer')
                 container.append(image1)};
   
@@ -71,30 +115,64 @@ async function takeInfo(city){
 
 
    
-  let name = data.city.name;
-  let country = data.city.country;
+
   let days = [data.list[0],data.list[8],data.list[16],data.list[24]];
 
 
 
 
 //Weatherblock
-
   const daysContainer = document.querySelector('.right-block__weatherblock');
         daysContainer.innerHTML = ''  
+        const idList = [];
   days.forEach((day,index) => {
   const dayiter  = day;
   const markClassname = 'weatherblock__unit__mark';
   const weekdayClassname = 'weatherblock__unit__week';
   const tempClassname = 'weatherblock__unit__temperature';
   const dayElname = 'right-block__weatherblock__unit';
+  const ButtonClassname = 'Buetton';
+
+
   
-  //Все про кнопку
+  //Все про кнопки WeatherBlock'a
   const btnElement = document.createElement('button')
-        btnElement.classList.add('Buetton')
-        btnElement.id = dayiter.id
+        btnElement.id = dayiter.dt
+        
+        idList.push(btnElement.id)
+        btnElement.classList.add(ButtonClassname)
+        if (index == 0){
+        btnElement.classList.add('BuettonActive')
+        }
         btnElement.addEventListener('click',()=>{
         btnElement.classList.toggle('BuettonActive')
+
+  function ActiveButtonRemoval (id){
+    let OtherElement0 = document.getElementById(`${idList[0]}`)
+    let OtherElement1 = document.getElementById(`${idList[1]}`)
+    let OtherElement2 = document.getElementById(`${idList[2]}`)
+    let OtherElement3 = document.getElementById(`${idList[3]}`)
+    if (id==idList[0]) {
+      OtherElement1.classList.remove('BuettonActive')
+      OtherElement2.classList.remove('BuettonActive')
+      OtherElement3.classList.remove('BuettonActive')
+    }
+    else if (id == idList[1]){
+    OtherElement0.classList.remove('BuettonActive')
+    OtherElement2.classList.remove('BuettonActive')
+    OtherElement3.classList.remove('BuettonActive')}
+    else if (id == idList[2]){
+    OtherElement0.classList.remove('BuettonActive')
+    OtherElement1.classList.remove('BuettonActive')
+    OtherElement3.classList.remove('BuettonActive')}
+    else if (id == idList[3]){
+    OtherElement0.classList.remove('BuettonActive')
+    OtherElement1.classList.remove('BuettonActive')
+    OtherElement2.classList.remove('BuettonActive')}
+  };
+
+
+
   if (pressureElement) {
       pressureElement.innerText = '';
       pressureElement.innerText =  `${dayiter.main.pressure} hPa`;
@@ -107,10 +185,11 @@ async function takeInfo(city){
       windElement.innerText = ' ';
       windElement.innerText = Math.round(dayiter.wind.speed) + ' km/h';
   };
+  ActiveButtonRemoval(btnElement.id)
   })
   const DayDate = new(Date)(dayiter.dt_txt)
   const weekDayEl = createDivElement(weekdayClassname, getCuttedWeekName(DayDate.getDay()));
-  const tempDayEl = createDivElement(tempClassname, Math.round(dayiter.main.temp));
+  const tempDayEl = createDivElement(tempClassname, `${Math.round(dayiter.main.temp)}`);
   const image = document.createElement('img');
         image.src= WeatherToIcon(dayiter.weather[0].icon);
         image.width=50;
@@ -132,31 +211,7 @@ function MakeZaglav(str) {
   const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
   return(capitalize(str)) ;
 }
-//Возвращает полное название недели 
-function weekChanger(str) {
-  if (str=='Mon'){
-    str='Monday'
-  }
-  else if  (str=="Thu"){
-    str="Thursday"
-  }
-  else if (str=='Wed'){
-    str='Wednesday'
-  }
-  else if (str=='Thu'){
-    str='Thursday'
-  }
-  else if (str=='Fri'){
-    str='Friday'
-  }
-  else if(str=='Sat'){
-    str='Saturday'
-  }
-  else if(str=='Sun'){
-    str="Sunday"
-  }
-  return str
-}
+
 //Создание div элемента
 function createDivElement(className, innerText) {
   const el = this.document.createElement('div');
@@ -229,11 +284,14 @@ return img
 };
 
 };
-// //Search Button
-// window.onload = function(){
-// searchboxButton.addEventListener("click",()=>{
-//   takeInfo(searchboxInput.value);
-//   searchboxInput.value='';
-// })
-// };
-window.onload.takeInfo();
+//Поиск нового города
+async function NewCity (){
+searchboxButton2.addEventListener("click",()=>{ 
+    startApp(searchboxInput2.value);
+  searchboxInput2.value='';
+})
+};
+
+
+
+
