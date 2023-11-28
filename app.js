@@ -262,24 +262,24 @@ function getMonthName (month){
 };
 // Иконки с погодой
 function WeatherToIcon (iconid){
-if (iconid =="01d" ) {img = '/image/sunmark.svg'}  
-else if (iconid =="02d" ) {img = '/image/cloudlymark.svg'}
-else if (iconid =="03d") {img = '/image/cloudlymark.svg'}
-else if (iconid =="04d") {img = '/image/cloudlymark.svg'}
-else if (iconid =="09d") {img = '/image/rainymark.svg'}
-else if (iconid =="10d") {img = '/image/rainymark.svg'}
-else if (iconid =="11d") {img = '/image/rainymark.svg'}
-else if (iconid =="13d") {img = '/image/snowmark.svg'}  
-else if (iconid =="50d") {img = '/image/mistmark.svg'}
-else if (iconid =="01n" ) {img = '/image/sunmark.svg'}  
-else if (iconid =="02n" ) {img = '/image/cloudlymark.svg'}
-else if (iconid =="03n") {img = '/image/cloudlymark.svg'}
-else if (iconid =="04n") {img = '/image/cloudlymark.svg'}
-else if (iconid =="09n") {img = '/image/rainymark.svg'}
-else if (iconid =="10n") {img = '/image/rainymark.svg'}
-else if (iconid =="11n") {img = '/image/rainymark.svg'}
-else if (iconid =="13n") {img = '/image/snowmark.svg'}  
-else if (iconid =="50n") {img = '/image/mistmark.svg'}
+if (iconid =="01d" ) {img = './image/sunmark.svg'}  
+else if (iconid =="02d" ) {img = './image/cloudlymark.svg'}
+else if (iconid =="03d") {img = './image/cloudlymark.svg'}
+else if (iconid =="04d") {img = './image/cloudlymark.svg'}
+else if (iconid =="09d") {img = './image/rainymark.svg'}
+else if (iconid =="10d") {img = './image/rainymark.svg'}
+else if (iconid =="11d") {img = './image/rainymark.svg'}
+else if (iconid =="13d") {img = './image/snowmark.svg'}  
+else if (iconid =="50d") {img = './image/mistmark.svg'}
+else if (iconid =="01n" ) {img = './image/sunmark.svg'}  
+else if (iconid =="02n" ) {img = './image/cloudlymark.svg'}
+else if (iconid =="03n") {img = './image/cloudlymark.svg'}
+else if (iconid =="04n") {img = './image/cloudlymark.svg'}
+else if (iconid =="09n") {img = './image/rainymark.svg'}
+else if (iconid =="10n") {img = './image/rainymark.svg'}
+else if (iconid =="11n") {img = './image/rainymark.svg'}
+else if (iconid =="13n") {img = './image/snowmark.svg'}  
+else if (iconid =="50n") {img = './image/mistmark.svg'}
 return img
 };
 

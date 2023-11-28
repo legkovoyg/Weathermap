@@ -75,8 +75,6 @@
 .right-block__textblock__text {
     font-size: 2.8em;
     font-weight: 700;
-    width: 275px;
-    height: 35px;
     color:var(--whitec);
     
 }
@@ -139,7 +137,6 @@
     background: var(--beautifulBlue);
     color: var(--whitec);
     font-family: Montserrat;
-    font-size: 2em;
     font-weight: 600;
     opacity: 1;
     display: inline-flex;
@@ -150,6 +147,7 @@
     cursor: pointer;
     font-size: calc(2*var(--space-12));
     }
+
     .search-box input{
     color:var(--whitec);
     font-size: calc(2*var(--space-12));
@@ -199,8 +197,8 @@
 
 @media screen and (max-width:1000px) {
     .right-block {
-        border-bottom-left-radius: 25px;
-        border-bottom-right-radius: 25px;
+        border-bottom-left-radius:0;
+        border-bottom-right-radius: 0;
         border-top-right-radius:0px ;
         flex-basis: auto;
         width:100%;
@@ -246,11 +244,18 @@
     .right-block__button {
         font-size: var(--space-16);
     }
+    .right-block__divider{
+        margin-bottom: 0;
+    }
 
     .fa-location-dot {
         position: absolute;
         color:var(--backcolor);
         font-size: 20px;
+    }
+    .search-box input {
+        font-size:14px;
+
     }
     
     
@@ -296,6 +301,11 @@
     }
     .weatherblock__unit__temperature{
     font-size: calc(3*var(--space-16));
+    }
+
+
+    .search-box input {
+        font-size:calc(5*var(--space-12))
     }
 }
     

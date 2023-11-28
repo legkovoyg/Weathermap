@@ -100,3 +100,16 @@
 .fa-solid {
     filter:invert(1);
 }
+
+
+@media screen and (max-width:1000px) {
+    .modal-window {
+        width:80%;
+        padding:5%;
+
+    }
+    .modal input{
+        font-size:18px;
+        
+    }
+}

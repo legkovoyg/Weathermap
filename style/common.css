@@ -18,7 +18,7 @@ body {
     background-color: #343D4B;
     color: var(--whitec);
     width: 100vw;
-    height:100vh;
+    min-height:100vh;
     margin: 0px;
     padding:0px;
     font-size: 0.69444444vw;
@@ -37,16 +37,23 @@ body {
 
 
 
+
 @media screen and (max-width:1000px) {
     .container{
         flex-direction: column;
         width:100vw;
         min-height:100vh
     }
-    
+    body {
+        height:auto;
+    }
+
+
+
     
 }
-@media screen and(min-width:2000px){
+
+@media screen and (min-width:2000px){
     .container{
         height:auto;
         width:100%;
