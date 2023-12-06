@@ -185,6 +185,19 @@
     .left-block__temperature {
     font-size: calc(5*var(--space-16));
     }
+    .left-block__location-mark img{
+        width:60px;
+        height:60px;
+    }
+    .left-block__weather-mark img{
+        width:250px;
+        height:250px;
+    }
+    .left-block__weather-mark{
+        width:auto;
+        height: auto;
+
+    }
 
 };
     

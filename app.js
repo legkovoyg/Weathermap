@@ -192,7 +192,6 @@ async function startApp(city){
   const tempDayEl = createDivElement(tempClassname, `${Math.round(dayiter.main.temp)}`);
   const image = document.createElement('img');
         image.src= WeatherToIcon(dayiter.weather[0].icon);
-        image.width=50;
   const markDayEl = createDivElement(markClassname);
         markDayEl.append(image);
   const dayEl = createDivElement(dayElname);  

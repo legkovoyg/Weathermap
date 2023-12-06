@@ -113,3 +113,18 @@
         
     }
 }
+@media screen and (min-width:2000px){
+    .modal-window img{
+        width:100px;
+        height:100px;
+    }
+    .modal-window button{
+        width:auto;
+        height: auto;
+
+    }
+    .modal-window input{
+        width:auto;
+        font-size: 200%;
+    }    
+}

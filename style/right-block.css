@@ -83,8 +83,6 @@
     text-align: right;
     font-size: 2.8em;
     font-weight: 500;
-    width: 153px;
-    height: 22px;
     flex-shrink: 0;
 }
 
@@ -105,6 +103,9 @@
     margin-bottom: 15px;
     margin-top:15px;
 
+}
+.weatherblock__unit__mark img{
+    width: 50px;
 }
 .weatherblock__unit__week{
     color: var(--whitec);
@@ -169,8 +170,8 @@
     }
     .search-box button {
     cursor:pointer;
-    width:30px;
-    height:30px;
+    width:auto;
+    height:auto;
     border-radius: 50%;
     font-size: calc(2*var(--space-12));
     font-family: Montserrat;
@@ -178,6 +179,11 @@
     border:none;
 
     }
+    .search-box img{
+        width:30px;
+        height:30px;
+    }
+
     .search-box button{
     color:var(--whitec);
 
@@ -190,6 +196,11 @@
     }
     .fa-solid {
         filter:invert(1);
+    }
+    .fa-solid img{
+        width:25px;
+        height:25px;
+        padding-top: 3px;
     }
 
 
@@ -302,10 +313,15 @@
     .weatherblock__unit__temperature{
     font-size: calc(3*var(--space-16));
     }
-
-
     .search-box input {
         font-size:calc(5*var(--space-12))
+    }
+    .search-box img{
+        width:60px;
+        height:60px;
+    }
+    .weatherblock__unit__mark img{
+        width:125px;
     }
 }
     
