@@ -158,19 +158,18 @@ async function startApp(city){
       OtherElement3.classList.remove('BuettonActive')
     }
     else if (id == idList[1]){
-    OtherElement0.classList.remove('BuettonActive')
-    OtherElement2.classList.remove('BuettonActive')
-    OtherElement3.classList.remove('BuettonActive')}
+      OtherElement0.classList.remove('BuettonActive')
+      OtherElement2.classList.remove('BuettonActive')
+      OtherElement3.classList.remove('BuettonActive')}
     else if (id == idList[2]){
-    OtherElement0.classList.remove('BuettonActive')
-    OtherElement1.classList.remove('BuettonActive')
-    OtherElement3.classList.remove('BuettonActive')}
+      OtherElement0.classList.remove('BuettonActive')
+      OtherElement1.classList.remove('BuettonActive')
+      OtherElement3.classList.remove('BuettonActive')}
     else if (id == idList[3]){
-    OtherElement0.classList.remove('BuettonActive')
-    OtherElement1.classList.remove('BuettonActive')
-    OtherElement2.classList.remove('BuettonActive')}
+      OtherElement0.classList.remove('BuettonActive')
+      OtherElement1.classList.remove('BuettonActive')
+      OtherElement2.classList.remove('BuettonActive')}
   };
-
 
 
   if (pressureElement) {
